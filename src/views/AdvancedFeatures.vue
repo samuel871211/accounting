@@ -1,0 +1,257 @@
+<script setup lang="ts">
+import { reactive, ref } from 'vue'
+import { components } from '../components/AdvancedFeatures'
+
+// data
+const selectedIdx = ref(-1)
+const dialog = reactive({
+    username: false,
+    search: false,
+    recover: false,
+    lock: false,
+    reminder: false,
+    accountsOrder: false,
+    expenseTypes: false,
+    incomeTypes: false,
+    styling: false,
+    script: false,
+    barcode: false,
+    invoice: false,
+    game: false,
+    feedback: false,
+    faq: false,
+    information: false,
+    upgrade: false,
+    settings: false
+})
+// methods
+function handleTouchStart (e: TouchEvent) {
+    const target = e.currentTarget as HTMLDivElement | null
+    target?.classList.add('touching')
+}
+function handleTouchEnd (e: TouchEvent) {
+    const target = e.currentTarget as HTMLDivElement | null
+    target?.classList.remove('touching')
+}
+</script>
+
+<template>
+    <header>
+        <h2>進階功能</h2>
+    </header>
+    <main>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 0"
+        >
+            <b :style="{ color: 'red' }">User</b>
+            <b>的錢包</b>
+        </div>
+        <div class="biggestSquare">
+            <b>0.0%</b>
+            <b>中獎率</b>
+        </div>
+        <div class="biggestSquare">
+            <b>1</b>
+            <b>發票數</b>
+        </div>
+        <div class="biggestSquare">
+            <b>120</b>
+            <b>記錄數</b>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 1"
+        >
+            <i class="fas fa-search"></i>
+            <span>搜尋紀錄</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 2"
+        >
+            <i class="fas fa-book-open"></i>
+            <span>備份還原</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 3"
+        >
+            <i class="fas fa-lock"></i>
+            <span>密碼</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 4"
+        >
+            <i class="fas fa-bell"></i>
+            <span>提醒</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 5"
+        >
+            <i class="fas fa-folder"></i>
+            <span>帳戶排序</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 6"
+        >
+            <i class="fas fa-coins"></i>
+            <span>支出類別</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 7"
+        >
+            <i class="fas fa-envelope-open"></i>
+            <span>收入類別</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 8"
+        >
+            <i class="fas fa-palette"></i>
+            <span>樣式選擇</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 9"
+        >
+            <i class="fas fa-robot"></i>
+            <span>自動記帳</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 10"
+        >
+            <i class="fas fa-barcode"></i>
+            <span>載具條碼</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 11"
+        >
+            <i class="fas fa-gift"></i>
+            <span>發票開獎</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 12"
+        >
+            <i class="fas fa-gamepad"></i>
+            <span>小遊戲</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 13"
+        >
+            <i class="fab fa-gratipay"></i>
+            <span>回饋</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 14"
+        >
+            <i class="fas fa-question"></i>
+            <span>問與答</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 15"
+        >
+            <i class="fas fa-info"></i>
+            <span>資訊</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 16"
+        >
+            <i class="fas fa-crown"></i>
+            <span>升級版本</span>
+        </div>
+        <div
+            class="biggestSquare"
+            @touchstart="handleTouchStart"
+            @touchend="handleTouchEnd"
+            @click="selectedIdx = 17"
+        >
+            <i class="fas fa-cog"></i>
+            <span>其他設定</span>
+        </div>
+        <keep-alive>
+            <component :is="components[selectedIdx]"></component>
+        </keep-alive>
+    </main>
+</template>
+
+<style scoped>
+h2 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(100% - 100px);
+}
+.biggestSquare {
+    width: min(25vw, calc((100vh - 100px) / 6));
+    height: min(25vw, calc((100vh - 100px) / 6));
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.biggestSquare > i {
+    font-size: 2rem;
+    color: #8fb6ff;
+}
+.biggestSquare > span {
+    padding-top: 8px;
+}
+.biggestSquare > b {
+    font-size: 1.25rem;
+}
+.touching {
+    background-color: rgba(204, 204, 204, 0.3);
+}
+</style>
