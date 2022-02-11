@@ -3,7 +3,7 @@ import Statistic from './Statistic.vue'
 import AccountList from './AccountList.vue'
 import AdvancedFeatures from './AdvancedFeatures.vue'
 
-export const components = [
+export const views = [
     Records,
     Statistic,
     AccountList,

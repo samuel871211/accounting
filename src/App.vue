@@ -1,31 +1,28 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import 'normalize.css'
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css'
-
-import BottomNavigation from './components/BottomNavigation.vue'
-import { components } from './views'
+import { views } from './views'
 
 // data
 const bottomNavSelectedIdx = ref(3)
 
-// method
-function toggleSelectedIdx (idx: number): void {
-    bottomNavSelectedIdx.value = idx
+// methods
+function switchView (index: number): void {
+    bottomNavSelectedIdx.value = index
 }
 </script>
 
 <template>
     <keep-alive>
-        <component :is="components[bottomNavSelectedIdx]"></component>
+        <component
+            :is="views[bottomNavSelectedIdx]"
+            @switchView="switchView"
+        ></component>
     </keep-alive>
-    <BottomNavigation
-        ref="bottomNavigation"
-        :selectedIdx="bottomNavSelectedIdx"
-        @toggleSelectedIdx="toggleSelectedIdx"
-    />
 </template>
 
-<style>
+<style> 
 html, body, #app {
     padding: 0;
     margin: 0;
