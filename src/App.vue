@@ -22,6 +22,7 @@ function switchView (index: number): void {
     </keep-alive>
 </template>
 
+<!-- TODO: 切換深色/淺色主題的功能還沒做完 -->
 <style> 
 html, body, #app {
     padding: 0;
@@ -29,20 +30,20 @@ html, body, #app {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #333333;
-    color: white;
     font-size: 16px;
+    color: #fbfbfb;
+    background-color: #333333;
 }
 * {
     box-sizing: border-box;
     outline: none;
 }
 .darkTheme {
-    color: white;
-    background-color: #222222;
+    color: #fbfbfb;
+    background-color: #333333;
 }
 .whiteTheme {
-    color: black;
-    background-color: #cccccc;
+    color: #555555;
+    background-color: #ffffff;
 }
 </style>
